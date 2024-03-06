@@ -1,8 +1,8 @@
 use serde::{de, Deserialize, Deserializer, Serialize, Serializer};
 
-use crate::NearGas;
+use crate::UncGas;
 
-impl Serialize for NearGas {
+impl Serialize for UncGas {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
@@ -24,29 +24,29 @@ impl Serialize for NearGas {
     }
 }
 
-impl<'de> Deserialize<'de> for NearGas {
+impl<'de> Deserialize<'de> for UncGas {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: Deserializer<'de>,
     {
         let s: String = Deserialize::deserialize(deserializer)?;
         s.parse::<u64>()
-            .map(NearGas::from_gas)
+            .map(UncGas::from_gas)
             .map_err(|err| de::Error::custom(err.to_string()))
     }
 }
 
 #[cfg(test)]
 mod test {
-    use crate::NearGas;
+    use crate::UncGas;
 
     #[test]
     fn json_ser() {
         fn test_json_ser(val: u64) {
-            let gas = NearGas::from_gas(val);
+            let gas = UncGas::from_gas(val);
             let ser = serde_json::to_string(&gas).unwrap();
             assert_eq!(ser, format!("\"{}\"", val));
-            let de: NearGas = serde_json::from_str(&ser).unwrap();
+            let de: UncGas = serde_json::from_str(&ser).unwrap();
             assert_eq!(de.as_gas(), val);
         }
 

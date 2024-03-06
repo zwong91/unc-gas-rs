@@ -1,9 +1,9 @@
 [package]
-name = "near-gas"
-version = "0.2.5"
+name = "unc-gas"
+version = "0.1.0"
 edition = "2021"
 authors = ["Serhieiev Ivan <serhieievivan6@gmail.com>", "Vlad Frolov <frolvlad@gmail.com>"]
-repository = "https://github.com/near/near-gas"
+repository = "https://github.com/near/unc-gas"
 rust-version = "1.68.0"
 categories = ["parser-implementations", "value-formatting", "no-std"]
 license = "MIT OR Apache-2.0"

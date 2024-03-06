@@ -1,6 +1,6 @@
-use crate::NearGas;
+use crate::UncGas;
 
-impl schemars::JsonSchema for NearGas {
+impl schemars::JsonSchema for UncGas {
     fn is_referenceable() -> bool {
         false
     }

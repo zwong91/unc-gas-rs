@@ -1,14 +1,14 @@
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum NearGasError {
+pub enum UncGasError {
     IncorrectNumber(crate::utils::DecimalNumberParsingError),
     IncorrectUnit(String),
 }
 
-impl std::error::Error for NearGasError {
+impl std::error::Error for UncGasError {
     fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
         match self {
-            NearGasError::IncorrectNumber(err) => Some(err),
-            NearGasError::IncorrectUnit(_) => None,
+            UncGasError::IncorrectNumber(err) => Some(err),
+            UncGasError::IncorrectUnit(_) => None,
         }
     }
 }

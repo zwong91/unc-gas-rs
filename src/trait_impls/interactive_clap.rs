@@ -1,5 +1,5 @@
-use crate::NearGas;
+use crate::UncGas;
 
-impl interactive_clap::ToCli for NearGas {
-    type CliVariant = NearGas;
+impl interactive_clap::ToCli for UncGas {
+    type CliVariant = UncGas;
 }
